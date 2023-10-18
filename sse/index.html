@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Demo</title>
+</head>
+<body>
+    <h1>Server-Sent Events Demo</h1>
+    <div id="sse"></div>
+
+    <script>
+        const sse = new EventSource('/events');
+        const sseOutput = document.getElementById('sse');
+
+        sse.onmessage = function(event) {
+            sseOutput.innerHTML += '<p>' + event.data + '</p>';
+        };
+    </script>
+</body>
+</html>
